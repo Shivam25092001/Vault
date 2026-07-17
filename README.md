@@ -5,7 +5,7 @@ Encrypt files in your browser, share a link, and let only holders of a secret
 code; the ciphertext is stored in Supabase. **Plaintext and the code never leave the
 device, and the server only ever holds opaque bytes.**
 
-- **Live app:** https://file-encrypter-nine.vercel.app
+- **Live app:** https://we-vault.vercel.app/
 - **Design authority:** [`HLD.md`](./HLD.md) — read it before changing behavior.
 - **Setup guide:** [`SETUP.md`](./SETUP.md)
 
