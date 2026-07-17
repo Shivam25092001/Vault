@@ -1,0 +1,607 @@
+/*
+ * Vault design system — dark slate-blue.
+ * Ported from the "Vault Owner/Recipient" mockups: Manrope + Space Grotesk,
+ * oklch hue 255, blue accent. All tokens below trace back to those files.
+ */
+
+:root {
+  --bg: oklch(0.15 0.02 255);
+  --text: oklch(0.95 0.01 255);
+
+  --accent: oklch(0.62 0.19 255);
+  --accent-hover: oklch(0.68 0.19 255);
+  --accent-deep: oklch(0.45 0.15 255);
+
+  --card: oklch(0.19 0.02 255);
+  --card-border: oklch(0.28 0.02 255);
+  --card-border-hover: oklch(0.4 0.05 255);
+
+  --panel: oklch(0.2 0.02 255);
+  --panel-border: oklch(0.3 0.02 255);
+
+  --input-bg: oklch(0.15 0.02 255);
+  --input-border: oklch(0.32 0.02 255);
+
+  --icon-box: oklch(0.27 0.03 255);
+  --row-hover: oklch(0.22 0.02 255);
+
+  --muted-1: oklch(0.75 0.02 255);
+  --muted-2: oklch(0.62 0.02 255);
+  --muted-3: oklch(0.55 0.02 255);
+  --muted-4: oklch(0.5 0.02 255);
+
+  --error: oklch(0.7 0.14 30);
+
+  --ok-bg: oklch(0.24 0.05 255 / 0.5);
+  --ok-border: oklch(0.4 0.1 255);
+  --ok-text: oklch(0.8 0.05 255);
+
+  --sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --display: 'Space Grotesk', 'Manrope', sans-serif;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: oklch(0.62 0.19 255 / 0.35);
+}
+
+input::placeholder {
+  color: var(--muted-4);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- layout ---------- */
+
+.page {
+  min-height: 100vh;
+  padding: clamp(20px, 6vw, 40px) clamp(16px, 5vw, 48px) 80px;
+}
+
+.page.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(24px, 8vw, 40px) 20px 60px;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ---------- header ---------- */
+
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand .mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(160deg, var(--accent), var(--accent-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.brand .word {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.brand.sm .mark {
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+.brand.sm .word {
+  font-size: 17px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: oklch(0.28 0.02 255);
+  border: 1px solid oklch(0.35 0.02 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: oklch(0.7 0.03 255);
+  cursor: pointer;
+}
+.avatar.on {
+  border-color: var(--accent);
+  color: oklch(0.85 0.05 255);
+}
+
+/* ---------- headings ---------- */
+
+.h1 {
+  font-family: var(--display);
+  font-size: clamp(24px, 6vw, 30px);
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted-2);
+  line-height: 1.5;
+}
+
+.section-head {
+  margin-bottom: 28px;
+}
+
+/* ---------- cards ---------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card.pad-tight {
+  padding: 10px;
+}
+
+/* ---------- forms ---------- */
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--muted-1);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 9px;
+  padding: 13px 14px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted-3);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--input-border);
+  color: var(--text);
+}
+.btn.ghost:hover:not(:disabled) {
+  background: transparent;
+  border-color: oklch(0.5 0.02 255);
+}
+
+.btn.sm {
+  padding: 11px 18px;
+  font-size: 13px;
+  border-radius: 9px;
+}
+
+.btn.block {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn-row .grow {
+  flex: 1 1 200px;
+}
+
+.linkbtn {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+/* ---------- dropzone ---------- */
+
+.dropzone {
+  background: var(--card);
+  border: 2px dashed var(--input-border);
+  border-radius: 16px;
+  padding: clamp(28px, 8vw, 48px) 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone.drag {
+  border-color: var(--accent);
+  background: oklch(0.2 0.03 255);
+}
+
+.dropzone .up {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--icon-box);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.dropzone .big {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dropzone .small {
+  font-size: 13px;
+  color: var(--muted-3);
+}
+
+/* ---------- file rows ---------- */
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background 0.12s ease;
+}
+.file-row:hover {
+  background: var(--row-hover);
+}
+
+.ext {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--icon-box);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: oklch(0.68 0.06 255);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+.ext img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.file-meta {
+  flex: 1;
+  min-width: 0;
+}
+.file-name {
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-sub {
+  font-size: 12px;
+  color: var(--muted-3);
+}
+
+.row-action {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 8px 12px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.row-action.danger {
+  color: var(--muted-3);
+}
+.row-action.danger:hover {
+  color: oklch(0.75 0.1 30);
+}
+
+/* ---------- account panel ---------- */
+
+.account {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.account .grow {
+  flex: 1;
+  min-width: 200px;
+}
+.account .title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.account .desc {
+  font-size: 12px;
+  color: var(--muted-2);
+}
+.account .input {
+  width: 180px;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+.account .input.pw {
+  width: 140px;
+}
+
+/* ---------- published / share panel ---------- */
+
+.share {
+  background: var(--ok-bg);
+  border: 1px solid var(--ok-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 20px;
+}
+.share .title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--ok-text);
+}
+.share .linkrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.share .url {
+  flex: 1;
+  background: oklch(0.14 0.02 255);
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--muted-1);
+  font-family: ui-monospace, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- messages ---------- */
+
+.err {
+  font-size: 12px;
+  color: var(--error);
+  margin: 0 0 14px;
+}
+
+.footnote {
+  font-size: 12px;
+  color: var(--muted-4);
+  line-height: 1.6;
+}
+.footnote.center {
+  text-align: center;
+}
+
+/* ---------- gallery / grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.grid figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--icon-box);
+  border: 1px solid var(--card-border);
+  aspect-ratio: 1;
+  position: relative;
+}
+.grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+.grid .nonimg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.grid .nonimg .tag {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: oklch(0.68 0.06 255);
+}
+.grid .nonimg .nm {
+  font-size: 11px;
+  color: var(--muted-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* ---------- spinner ---------- */
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid oklch(0.4 0.02 255);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: oklch(0.14 0.02 255);
+  overflow: hidden;
+  margin: 14px 0 8px;
+}
+.progress > i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.inline-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+/* ---------- lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: oklch(0.1 0.02 255 / 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}

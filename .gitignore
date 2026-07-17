@@ -1,0 +1,28 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+
+# Vault outputs & local test artifacts — encrypted blobs and downloaded
+# manifests are generated, never source, and must not land in the repo.
+*.enc
+*__manifest.json
+*.zip
+/crimea-mountains-near-phoros-25621635.webp
+
+.DS_Store
+*.log
+npm-debug.log*
+.vite
+coverage
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
